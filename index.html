@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новогодняя Коробка</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Новогодний фон -->
+    <div class="snowflakes" aria-hidden="true"></div>
+    
+    <!-- Ёлочные игрушки на фоне -->
+    <div class="christmas-decorations">
+        <div class="ornament ornament1"></div>
+        <div class="ornament ornament2"></div>
+        <div class="ornament ornament3"></div>
+        <div class="ornament ornament4"></div>
+        <div class="ornament ornament5"></div>
+    </div>
+    
+    <!-- Огоньки -->
+    <div class="christmas-lights"></div>
+
+    <div class="container">
+        <!-- Праздничная коробка -->
+        <div id="giftBox" class="gift-box">
+            <div class="box">
+                <div class="box-top">
+                    <div class="lid-pattern"></div>
+                </div>
+                <div class="box-bottom">
+                    <div class="box-pattern"></div>
+                </div>
+                <div class="ribbon">
+                    <div class="ribbon-vertical"></div>
+                    <div class="ribbon-horizontal"></div>
+                    <div class="ribbon-bow">
+                        <div class="bow-left"></div>
+                        <div class="bow-right"></div>
+                        <div class="bow-center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Картинка, которая появляется после открытия коробки -->
+        <div id="imageContainer" class="image-container hidden">
+            <img id="surpriseImage" src="" alt="Сюрприз">
+        </div>
+        
+        
+        <!-- Скрытый аудио элемент -->
+        <audio id="blehSound" preload="auto" style="display: none;">
+            <source src="bleh_TgHxq3T.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

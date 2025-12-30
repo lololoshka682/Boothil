@@ -1,0 +1,439 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Новогодний фон */
+body {
+    background: linear-gradient(180deg, #0a2e38 0%, #1a1a2e 50%, #16213e 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Снежинки */
+.snowflakes {
+    position: fixed;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    color: white;
+    font-size: 1em;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* Ёлочные игрушки на фоне */
+.christmas-decorations {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.ornament {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.ornament1 {
+    top: 20%;
+    left: 10%;
+    background: radial-gradient(circle at 30% 30%, #ff6b6b, #ff3838);
+    box-shadow: 0 0 15px #ff6b6b;
+    animation-delay: 0s;
+}
+
+.ornament2 {
+    top: 40%;
+    right: 15%;
+    background: radial-gradient(circle at 30% 30%, #4ecdc4, #1dd1a1);
+    box-shadow: 0 0 15px #4ecdc4;
+    animation-delay: 1s;
+}
+
+.ornament3 {
+    bottom: 30%;
+    left: 20%;
+    background: radial-gradient(circle at 30% 30%, #ffd166, #ff9e00);
+    box-shadow: 0 0 15px #ffd166;
+    animation-delay: 2s;
+}
+
+.ornament4 {
+    top: 60%;
+    right: 25%;
+    background: radial-gradient(circle at 30% 30%, #9b5de5, #7209b7);
+    box-shadow: 0 0 15px #9b5de5;
+    animation-delay: 3s;
+}
+
+.ornament5 {
+    bottom: 20%;
+    right: 10%;
+    background: radial-gradient(circle at 30% 30%, #00bbf9, #0081cc);
+    box-shadow: 0 0 15px #00bbf9;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+/* Новогодние огоньки */
+.christmas-lights {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 107, 107, 0.15) 2px, transparent 3px),
+        radial-gradient(circle at 90% 40%, rgba(78, 205, 196, 0.15) 2px, transparent 3px),
+        radial-gradient(circle at 30% 70%, rgba(255, 209, 102, 0.15) 2px, transparent 3px),
+        radial-gradient(circle at 70% 80%, rgba(155, 93, 229, 0.15) 2px, transparent 3px),
+        radial-gradient(circle at 50% 30%, rgba(0, 187, 249, 0.15) 2px, transparent 3px);
+    background-size: 300px 300px;
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+
+/* Основной контейнер */
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+/* Коробка - всегда по центру */
+.gift-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    width: 300px;
+    height: 250px;
+    z-index: 20;
+    transition: transform 0.3s ease;
+}
+
+.gift-box:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+.box-top {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 80px;
+    background: linear-gradient(145deg, #ff9a00, #ff6a00);
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.8s ease;
+    transform-origin: bottom;
+    z-index: 3;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.lid-pattern {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 8px,
+        rgba(255, 255, 255, 0.1) 8px,
+        rgba(255, 255, 255, 0.1) 16px
+    );
+    border-radius: 5px;
+}
+
+.box-bottom {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 170px;
+    background: linear-gradient(145deg, #ff6a00, #ff3d00);
+    border-radius: 10px;
+    z-index: 2;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.box-pattern {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+}
+
+/* Ленточка на коробке */
+.ribbon {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+}
+
+.ribbon-vertical {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25px;
+    height: 100%;
+    background: linear-gradient(to bottom, #00c6ff, #0072ff);
+    box-shadow: 0 0 10px rgba(0, 114, 255, 0.7);
+}
+
+.ribbon-horizontal {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 25px;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    box-shadow: 0 0 10px rgba(0, 114, 255, 0.7);
+}
+
+.ribbon-bow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 60px;
+    z-index: 5;
+}
+
+.bow-left, .bow-right {
+    position: absolute;
+    width: 35px;
+    height: 50px;
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    border-radius: 50%;
+    box-shadow: 0 5px 20px rgba(0, 114, 255, 0.6);
+}
+
+.bow-left {
+    left: 0;
+    transform: rotate(-30deg);
+}
+
+.bow-right {
+    right: 0;
+    transform: rotate(30deg);
+}
+
+.bow-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+}
+
+/* Картинка - на том же месте что и коробка */
+.image-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+    z-index: 20;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
+}
+
+#surpriseImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 8px solid white;
+    box-shadow: 
+        inset 0 0 20px rgba(255, 255, 255, 0.3),
+        0 0 40px rgba(255, 107, 107, 0.3);
+    transition: all 0.3s ease;
+}
+
+#surpriseImage:hover {
+    transform: scale(1.02);
+    box-shadow: 
+        inset 0 0 30px rgba(255, 255, 255, 0.4),
+        0 0 50px rgba(255, 107, 107, 0.5);
+}
+
+/* Анимации */
+.box-open .box-top {
+    transform: translateX(-50%) rotateX(180deg);
+}
+
+.box-open .box {
+    animation: boxDisappear 1s forwards;
+}
+
+@keyframes boxDisappear {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+        display: none;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Инструкция */
+.instruction {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.9), rgba(78, 205, 196, 0.9));
+    color: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 16px;
+    z-index: 100;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    max-width: 80%;
+    backdrop-filter: blur(5px);
+    animation: glow 2s infinite alternate;
+}
+
+.instruction p {
+    margin: 8px 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.instruction p:first-child {
+    font-weight: bold;
+    font-size: 20px;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+    }
+    to {
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
+    }
+}
+
+/* Анимация для картинки при клике */
+@keyframes clickEffect {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+.click-animation {
+    animation: clickEffect 0.2s ease;
+}
+
+/* Мерцающие звёзды на фоне */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle-star 3s infinite alternate;
+}
+
+@keyframes twinkle-star {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Аудио элемент */
+#blehSound {
+    display: none;
+}
